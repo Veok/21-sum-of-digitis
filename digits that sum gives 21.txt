@@ -1,0 +1,21 @@
+getResults(A) :- 
+    A < 1000000 ->  
+    numbers2(A,0,X), 
+   statement(X,A),
+    Z is A + 1, 
+    getResults(Z)
+    .
+
+statement(X,A) :-
+     X =:= 21 ->  
+    writeln(A); true.
+    
+
+numbers2(M,Y, Q) :- 
+    M > 0 ->
+    Z is M mod 10,
+    S is Y + Z,
+    T is M div 10,
+    numbers2(T,S,Q);
+    Q is Y
+    .
